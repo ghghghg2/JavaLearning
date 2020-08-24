@@ -1,6 +1,5 @@
 // https://openhome.cc/Gossip/Java/Inheritance.html (繼承)
 // https://openhome.cc/Gossip/Java/Polymorphism-is-a.html (多形)
-// https://openhome.cc/Gossip/Java/Override.html (Override)
 
 public class RPG {
 
@@ -22,8 +21,6 @@ public class RPG {
 		showBlood(swordsMan);
 		showBlood(magician);
 		
-		drawFight(swordsMan);
-		drawFight(magician);
 
 	}
 	
@@ -45,16 +42,10 @@ public class RPG {
 		System.out.printf("魔法師 (%s, %d, %d)\n", magician.getName(), magician.getLevel(), magician.getBlood());
 	}
 	
-	static void showBlood(Role role)  // polymorphism : swordsMan is-a role, magician is-a role
+	static void showBlood(Role role)
 	{
 		System.out.printf("%s 血量  %d\n", role.getName(), role.getBlood());
 	}
-	
-	static void drawFight(Role role)
-    {
-    	System.out.print(role.getName());
-        role.fight();
-    }
 
 }
 
@@ -88,19 +79,12 @@ class Role
     public void setName(String name) {
         this.name = name;
     }
-    
-    public void fight()
-    {
-    	// 子類別要重新定義fight()的實際行為 (override)
-    }
-    
-    
 }
 
 
 class SwordsMan extends Role
 {
-	public void fight()
+	void fight()
 	{
 		System.out.println("揮劍攻擊");
 	}
@@ -108,13 +92,12 @@ class SwordsMan extends Role
 
 class Magician extends Role
 {
-	@Override
-	public void fight()
+	void fight()
 	{
 		System.out.println("魔法攻擊");
 	}
 	
-	public void cure()
+	void cure()
 	{
 		System.out.println("魔法治療");
 	}

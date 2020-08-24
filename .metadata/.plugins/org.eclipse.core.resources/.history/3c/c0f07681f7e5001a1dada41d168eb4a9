@@ -1,6 +1,5 @@
 // https://openhome.cc/Gossip/Java/Inheritance.html (Ä~©Ó)
 // https://openhome.cc/Gossip/Java/Polymorphism-is-a.html (¦h§Î)
-// https://openhome.cc/Gossip/Java/Override.html (Override)
 
 public class RPG {
 
@@ -108,7 +107,6 @@ class SwordsMan extends Role
 
 class Magician extends Role
 {
-	@Override
 	public void fight()
 	{
 		System.out.println("Å]ªk§ðÀ»");
