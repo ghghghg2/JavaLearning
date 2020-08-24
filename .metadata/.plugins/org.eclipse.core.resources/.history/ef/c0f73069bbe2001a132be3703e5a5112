@@ -1,0 +1,19 @@
+// https://openhome.cc/Gossip/Java/Static.html  (static)
+
+class Ball
+{
+	double radius;
+	static final double PI = 3.141596;
+	static double toRadians(double angdeg)
+	{
+		return angdeg * (Ball.PI / 180);
+	}
+}
+
+public class StaticUsage {
+	public static void main(String[] args)
+	{
+		System.out.println(Ball.toRadians(180.));
+	}
+
+}

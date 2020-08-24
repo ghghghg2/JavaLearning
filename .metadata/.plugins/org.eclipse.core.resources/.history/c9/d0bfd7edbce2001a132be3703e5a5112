@@ -1,0 +1,11 @@
+// https://openhome.cc/Gossip/Java/Variable-lengthArgument.html (不定長度引數)
+
+
+public class VariableLengthArg {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

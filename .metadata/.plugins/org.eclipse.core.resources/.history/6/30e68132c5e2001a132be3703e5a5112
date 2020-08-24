@@ -1,0 +1,75 @@
+// https://openhome.cc/Gossip/Java/Inheritance.html 
+
+
+
+
+public class RPG {
+
+	public static void main(String[] args) {
+		demoSwordsMan();
+
+	}
+	
+	static void demoSwordsMan()
+	{
+		SwordsMan swordsMan = new SwordsMan();
+		swordsMan.setName("Justin");
+		swordsMan.setLevel(1);
+		swordsMan.setBlood(200);
+		System.out.printf("¼C¤h (%s, %d, %d)", swordsMan.getName(), swordsMan.getLevel(), swordsMan.getBlood());
+	}
+
+}
+
+
+class Role {
+    private String name;
+    private int level;
+    private int blood;
+    
+    public int getBlood() {
+        return blood;
+    }
+
+    public void setBlood(int blood) {
+        this.blood = blood;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+
+
+class SwordsMan extends Role
+{
+	void fight()
+	{
+		System.out.println("´§¼C§ðÀ»");
+	}
+}
+
+class Magician extends Role
+{
+	void fight()
+	{
+		System.out.println("Å]ªk§ðÀ»");
+	}
+	
+	void cure()
+	{
+		System.out.println("Å]ªkªvÀø");
+	}
+}

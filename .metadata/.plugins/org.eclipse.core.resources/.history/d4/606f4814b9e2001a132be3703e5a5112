@@ -1,0 +1,11 @@
+// https://openhome.cc/Gossip/Java/Overload.html  (Overload)
+// https://openhome.cc/Gossip/Java/This.html (this)
+
+public class Other {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
