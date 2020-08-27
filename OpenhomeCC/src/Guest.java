@@ -1,0 +1,85 @@
+// https://openhome.cc/Gossip/Java/Object.html (java.lang.Object)
+
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Guest {
+
+	public static void main(String[] args) {
+		ArrayList names = new ArrayList();
+		collectNameTo(names);
+		System.out.println("訪客名單：");
+        printUpperCase(names);
+
+	}
+	
+	public static void collectNameTo(ArrayList names)
+	{
+		Scanner scanner = new Scanner(System.in);
+		String name;
+		while(true)
+		{
+			System.out.print("訪客名稱:");
+			name = scanner.nextLine();
+			if (name.equals("quit"))
+			{
+				break;
+			}
+			names.add(name);
+		}		
+	}
+	
+	public static void printUpperCase(ArrayList names)
+	{
+		
+		for (int i = 0; i < names.size(); i++)
+		{			
+			String name = (String) names.get(i);
+			System.out.println(name.toUpperCase());
+		}
+		
+		System.out.println("人數: " + Integer.toString(names.size()));
+	}
+	
+
+}
+
+class ArrayList
+{
+	private Object[] list;
+	private int next;
+	
+	public ArrayList(int capacity) // constructor
+	{
+		list = new Object[capacity];
+		this.next = 0;
+	}
+	
+	public ArrayList()
+	{
+		this(16);
+		this.next = 0;
+	}
+	
+	public void add(Object o)
+	{
+		if (next == list.length)
+		{
+			this.list = Arrays.copyOf(this.list, this.list.length * 2);
+		}
+		
+		list[next] = o;
+		this.next++;
+	}
+	
+	public Object get(int index)
+	{
+		return this.list[index];
+	}
+	
+	public int size()
+	{
+		return this.next;
+	}
+}

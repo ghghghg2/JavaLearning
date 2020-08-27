@@ -1,0 +1,41 @@
+
+import java.util.Arrays;
+
+
+public class Guest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+class ArrayList
+{
+	private Object[] list;
+	private int next;
+	
+	public ArrayList(int capacity) // constructor
+	{
+		list = new Object[capacity];
+		this.next = capacity;
+	}
+	
+	public ArrayList()
+	{
+		this(16);
+		this.next = 16;
+	}
+	
+	public void add(Object o)
+	{
+		if (next == list.length)
+		{
+			this.list = Arrays.copyOf(this.list, this.list.length * 2);
+		}
+		
+		list[next] = o;
+		this.next++;
+	}
+}
