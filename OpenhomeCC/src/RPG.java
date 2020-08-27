@@ -1,6 +1,8 @@
 // https://openhome.cc/Gossip/Java/Inheritance.html (繼承)
 // https://openhome.cc/Gossip/Java/Polymorphism-is-a.html (多形)
 // https://openhome.cc/Gossip/Java/Override.html (Override)
+// https://openhome.cc/Gossip/Java/Protected.html (protected - 可以被子類別存取(不須透過父類別的方法))
+// https://openhome.cc/Gossip/Java/OverrideSyntax.html (使用super呼叫父類別中被override的方法)
 
 public class RPG {
 
@@ -33,7 +35,7 @@ public class RPG {
 		swordsMan.setName("Justin");
 		swordsMan.setLevel(1);
 		swordsMan.setBlood(200);
-		System.out.printf("劍士 (%s, %d, %d)\n", swordsMan.getName(), swordsMan.getLevel(), swordsMan.getBlood());
+		System.out.printf(swordsMan.toString());
 	}
 	
 	static void demoMagician()
@@ -42,7 +44,7 @@ public class RPG {
 		magician.setName("Monica");
 		magician.setLevel(1);
 		magician.setBlood(100);
-		System.out.printf("魔法師 (%s, %d, %d)\n", magician.getName(), magician.getLevel(), magician.getBlood());
+		System.out.printf(magician.toString());
 	}
 	
 	static void showBlood(Role role)  // polymorphism : swordsMan is-a role, magician is-a role
@@ -61,9 +63,9 @@ public class RPG {
 
 class Role 
 {
-    private String name;
-    private int level;
-    private int blood;
+    protected String name;
+    protected int level;
+    protected int blood;
     
     public int getBlood() {
         return blood;
@@ -95,14 +97,28 @@ class Role
     }
     
     
+    // to be override
+    public String toString() 
+    {
+    	return String.format("(%s, %d, %d)\n", this.name, this.level, this.blood);
+    }
+    
+    
 }
 
 
 class SwordsMan extends Role
 {
+	@Override
 	public void fight()
 	{
 		System.out.println("揮劍攻擊");
+	}
+	
+	@Override
+	public String toString()
+	{
+		return "劍士" + super.toString();
 	}
 }
 
@@ -117,5 +133,11 @@ class Magician extends Role
 	public void cure()
 	{
 		System.out.println("魔法治療");
+	}
+	
+	@Override
+	public String toString()
+	{
+		return "魔法師" + super.toString();
 	}
 }
